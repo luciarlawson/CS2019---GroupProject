@@ -1,11 +1,18 @@
--- ####################################################################
--- # Basic CREATE TABLE statement
--- # See https://www.ibm.com/docs/en/db2-for-zos/13?topic=statements-create-table for complete syntax.
--- ####################################################################
-CREATE TABLE Attendance (
-    column-name data-type1 WITH DEFAULT constant,
-    column-name data-type2 NOT NULL
-)
-    IN database-name.table-space-name
-    CCSID ccsid-value
-    BUFFERPOOL bpname
+CREATE TABLE `u02ll24_Project`.`Attendance` (
+  `FlightID` BIGINT(25) NOT NULL,
+  `PartyID` VARCHAR(25) NOT NULL,
+  `AttendanceStatus` ENUM('Booked','Completed','Cancelled') NOT NULL
+  
+  ) ENGINE = InnoDB;
+
+
+CREATE TABLE `u02ll24_Project`.`Flight` (
+  `FlightID` BIGINT(25) UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `Duration` ENUM('30mins','1hour','2hours','12hours') NOT NULL ,
+  `Date` DATE NOT NULL ,
+  `Time` TIME NOT NULL ,
+  `Route` ENUM('Costal','Sunset','Overseas','Night-time') NOT NULL ,
+  `FlightStatus` ENUM('Completed','In-progress','Cancelled') NOT NULL ,
+  PRIMARY KEY (`FlightID`)
+
+  ) ENGINE = InnoDB;

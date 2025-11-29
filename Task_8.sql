@@ -23,7 +23,7 @@ CREATE TABLE `u02ll24_Project`.`PleasureFlight` (
   `FlightID` BIGINT(25) UNSIGNED NOT NULL AUTO_INCREMENT ,
   `PartyID` VARCHAR(25) NOT NULL,
 
-  PRIMARY KEY (`flightID`)
+  PRIMARY KEY (`FlightID`)
   
   ) ENGINE = InnoDB;
 
