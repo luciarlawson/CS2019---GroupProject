@@ -1,8 +1,9 @@
 -- Task 8
 -- Primary keys are all VARCHAR as they are made up of letters and numbers.
--- If a value can be expresesd purely as a number, it is an INT data type.
--- "Date" and "Time" within the flight table are expresed as DATE and TIME data types respectively.
+-- If a value can be expressed purely as a number, it is an INT data type.
+-- "Date" and "Time" within the flight table are expressed as DATE and TIME data types respectively.
 -- For the attributes whose answers can only be from a select set of options, (e.g. Status: "booked", "completed", "canceled") we have used ENUM.
+-- Primary keys and foreign keys are used for data integrity
 
 
 CREATE TABLE `Flight` (
@@ -23,7 +24,6 @@ CREATE TABLE `Party` (
   `ContactNo` VARCHAR(35) NOT NULL,
 
   PRIMARY KEY (`PartyID`)
-
 );
 
 
@@ -33,7 +33,6 @@ CREATE TABLE `Trainee_Officer` (
   `Lname` VARCHAR(35) NOT NULL,
 
   PRIMARY KEY (`TraineeID`)
-
 );
 
 
@@ -44,8 +43,7 @@ CREATE TABLE `Pilot` (
   `Role` ENUM('Captain','Chief Officer','Officer','') NOT NULL,
 
   PRIMARY KEY (`pilotID`)
-  
-  );
+);
 
 
 CREATE TABLE `Instructor` (
@@ -54,7 +52,6 @@ CREATE TABLE `Instructor` (
   `Lname` VARCHAR(35) NOT NULL,
 
   PRIMARY KEY (`InstructorID`)
-
 );
 
 
@@ -112,7 +109,7 @@ CREATE TABLE `Pleasure_Flight` (
   CONSTRAINT `fk_pleasure_flight`
     FOREIGN KEY (`FlightID`) REFERENCES `Flight` (`FlightID`)
     ON DELETE RESTRICT ON UPDATE CASCADE
-  );
+);
 
 
 CREATE TABLE `Training_Flight` (
@@ -133,6 +130,5 @@ CREATE TABLE `Training_Flight` (
   CONSTRAINT `fk_training_instructor`
     FOREIGN KEY (`InstructorID`) REFERENCES `Instructor` (`InstructorID`)
     ON DELETE RESTRICT ON UPDATE CASCADE
-
 );
 

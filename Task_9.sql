@@ -14,6 +14,7 @@ VALUES
     ('PS0011', 'PY0006', 'Kaley', 'Smith', FALSE, '07353459490'),
     ('PS0012', 'PY0006', 'Elaine', 'Malgova', TRUE, '07144509253');
 
+
 INSERT INTO Party
   ( PartyID, NoOfMembers, ContactNo )
 VALUES
@@ -36,7 +37,6 @@ VALUES
     ("FL0004", "PY0006", "Booked");
 
 
-
 INSERT INTO Flight 
 (FlightID, Duration, Date, Time, Route, FlightStatus) 
 VALUES 
@@ -52,6 +52,7 @@ VALUES
     ('FL0010', '30mins', '2025-12-01', '19:00', 'Sunset', 'In-progress'),
     ('FL0011', '1hour', '2025-12-02', '19:00', 'Sunset', 'In-Progress');
 
+
 INSERT INTO Crew 
     (PilotID, FlightID)
 VALUES
@@ -66,6 +67,7 @@ VALUES
     ('PL0002', 'FL0004'),
     ('PL0005', 'FL0004');
 
+
 INSERT INTO Pilot
 (PilotID, Fname, Lname, Role)
 VALUES
@@ -78,6 +80,7 @@ VALUES
     ('PL0007', 'Gavin', 'Marcer', 'Captain'),
     ('PL0008', 'Mercer', 'Hartford', 'Chief Officer');
 
+
 INSERT INTO Training_Flight
     (FlightID, TraineeID, InstructorID)
 VALUES
@@ -88,6 +91,7 @@ VALUES
     ('FL0010', 'TR0005', 'IR0004'),
     ('FL0011', 'TR0004', 'IR0003');
 
+
 INSERT INTO Trainee_Officer
     (TraineeID, Fname, Lname) 
 VALUES
@@ -97,6 +101,7 @@ VALUES
     ('TR0004', 'Victoria', 'Dimitrova'),
     ('TR0005', 'Ethan', 'Mitchell');
 
+
 INSERT INTO Instructor 
     (InstructorID, Fname, Lname) 
 VALUES
@@ -104,6 +109,7 @@ VALUES
     ('IR0002', 'Karl', 'Stegmann'),
     ('IR0003', 'Morag', 'Stewart'),
     ('IR0004', 'Evangaline', 'Connor');
+
 
 INSERT INTO Pleasure_Flight
     (FlightID, PassengerCount)
