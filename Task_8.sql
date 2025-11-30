@@ -1,5 +1,11 @@
+-- Task 8
+-- Primary keys are all VARCHAR as they are made up of letters and numbers.
+-- If a value can be expresesd purely as a number, it is an INT data type.
+-- "Date" and "Time" within the flight table are expresed as DATE and TIME data types respectively.
+-- For the attributes whose answers can only be from a select set of options, (e.g. Status: "booked", "completed", "canceled") we have used ENUM.
 
-  CREATE TABLE `Flight` (
+
+CREATE TABLE `Flight` (
   `FlightID` VARCHAR(25) NOT NULL,
   `Duration` ENUM('30mins','1hour','2hours','12hours') NOT NULL,
   `Date` DATE NOT NULL,
@@ -44,6 +50,8 @@ CREATE TABLE `Pilot` (
 
 CREATE TABLE `Instructor` (
   `InstructorID` VARCHAR(25) NOT NULL ,
+  `Fname` VARCHAR(35) NOT NULL,
+  `Lname` VARCHAR(35) NOT NULL,
 
   PRIMARY KEY (`InstructorID`)
 
@@ -63,18 +71,6 @@ CREATE TABLE `Attendance` (
     FOREIGN KEY (`PartyID`) REFERENCES `Party` (`PartyID`)
     ON DELETE RESTRICT ON UPDATE CASCADE
 );
-
-
-CREATE TABLE `PleasureFlight` (
-  `FlightID` VARCHAR(25) NOT NULL ,
-  `PartyID` VARCHAR(25) NOT NULL,
-
-  PRIMARY KEY (`FlightID`),
-  
-  CONSTRAINT `fk_pleasure_flight`
-    FOREIGN KEY (`FlightID`) REFERENCES `Flight` (`FlightID`)
-    ON DELETE RESTRICT ON UPDATE CASCADE
-  );
 
 
 CREATE TABLE `Crew` (
@@ -105,6 +101,18 @@ CREATE TABLE `Passenger` (
     FOREIGN KEY (`PartyID`) REFERENCES `Party` (`PartyID`)
     ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
+
+CREATE TABLE `Pleasure_Flight` (
+  `FlightID` VARCHAR(25) NOT NULL ,
+  `PassengerCount` INT(1) NOT NULL,
+
+  PRIMARY KEY (`FlightID`),
+  
+  CONSTRAINT `fk_pleasure_flight`
+    FOREIGN KEY (`FlightID`) REFERENCES `Flight` (`FlightID`)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+  );
 
 
 CREATE TABLE `Training_Flight` (
