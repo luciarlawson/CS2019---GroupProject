@@ -1,3 +1,5 @@
+-- TASK 8: CREATE TABLE STATEMENTS
+
 CREATE TABLE `Flight` (
   `FlightID` VARCHAR(25) NOT NULL,
   `Duration` ENUM('30mins','1hour','2hours','12hours') NOT NULL,
@@ -124,6 +126,8 @@ CREATE TABLE `Training_Flight` (
     ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
+
+-- TASK 9: INSERT DATA STATEMENTS
 
 INSERT INTO Passenger 
     (PassengerID, PartyID, Fname, Lname, Adult, PhoneNo)
